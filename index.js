@@ -1,13 +1,21 @@
 import TelegramBot from "node-telegram-bot-api";
 import dotenv from "dotenv";
 import axios from "axios";
+import express from "express"
+
+const app = express();
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Bot is working!"); 
+});
 
 dotenv.config();
 
 const token = process.env.BOT_TOKEN;
 const api = process.env.API_URL;
 const bot = new TelegramBot(token, { polling: true });
-console.log("Bot is working!");
+
+
 
 // requests.post(f"{api}/users/add", json = {
 // 	"id": message.from_user.id,
